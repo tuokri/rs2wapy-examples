@@ -89,8 +89,12 @@ on line number 9.
     - Create new app.
     - Give your app a name & choose region.
     - Deployment method: GitHub
-        
+    
     ![Deploy](../images/heroku_deployment_method_github.png)
+
+    - Enable automatic deploys.
+    
+    ![Automatic Deploys](../images/heroku_enable_automatic_deploys.png)
 
     - Connect to GitHub & choose your repository
     (the one you forked and edited).
