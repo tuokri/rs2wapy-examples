@@ -11,7 +11,6 @@ Brief explanation of the files in this directory.
 ```
 ranked_alert.py  # example application source code
 README.md        # this readme file
-requirements.txt # Python dependencies for Heroku
 ```
 
 ### Instructions
