@@ -80,7 +80,7 @@ on line number 9.
     ![Save Changes](../images/github_commit_unranked_alert_changes.png)
 
 #### 5. Deploy on Heroku
-1. Create a free dyno.
+1. Setup a new Heroku app & deploy from GitHub.
 
     - Go to https://dashboard.heroku.com/apps.
     - Click 'New' (top right corner).
@@ -94,5 +94,3 @@ on line number 9.
     (the one you forked and edited).
 
 2. Setup environment variables.
-
-3. Deploy from GitHub.
