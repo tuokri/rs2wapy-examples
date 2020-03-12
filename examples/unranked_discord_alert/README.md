@@ -75,6 +75,8 @@ Those steps are irrelevant for this example!_
 4. In [ranked_alert.py](ranked_alert.py) set `RUN = True`
 on line number 9.
 
+    ![Edits](../images/github_unranked_alert_changes.png)
+
 5. Save (commit) the changes.
 
     ![Save Changes](../images/github_commit_unranked_alert_changes.png)
@@ -94,3 +96,5 @@ on line number 9.
     (the one you forked and edited).
 
 2. Setup environment variables.
+
+    
