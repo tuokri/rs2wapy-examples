@@ -1,4 +1,4 @@
-Discord Unranked Alert Example Application
+# Discord Unranked Alert Example Application
 
 Make sure you read [the general example README](../../README.md) first.
 
