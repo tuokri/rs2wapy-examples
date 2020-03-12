@@ -22,11 +22,13 @@ Detailed steps on setting up this example application.
 
 2. Fork this example repository https://github.com/tuokri/rs2wapy-examples.
     
+    ![Fork Examples](../images/github_fork_examples.png)
+    
     After forking, you will have a copy of this repository
     in your GitHub account.
 
 #### 2. Setting up Heroku
-1. Create a free Heroku account.
+1. Create a free Heroku account. https://signup.heroku.com/
 
     Free Heroku account allows you to setup free dynos with
     550 run hours each month. If you verify your account 
@@ -50,10 +52,10 @@ _**DO NOT** perform the steps explained in the
 'QUICK EXAMPLE: GITHUB WEBHOOK INTEGRATION' section!
 Those steps are irrelevant for this example!_
 
-#### 4. Setup example application
-1. Enable Discord advanced mode.
+#### 4. Setup Discord Developer Mode and Role IDs
+1. Enable Discord Developer Mode.
     
-    ![Advanced Mode](../images/discord_advanced_mode.png)
+    ![Developer Mode](../images/discord_advanced_mode.png)
 
 2. Copy desired role ID(s).
     
@@ -64,6 +66,8 @@ Those steps are irrelevant for this example!_
 
 3. Add role ID(s) to [ranked_alert.py](ranked_alert.py).
 
+    ![Edit The File](../images/github_edit_unranked_alert.png)
+
     Open the file and look at lines 18 to 28.
     The role IDs are stored in the `PING_DISCORD_ROLES` variable.
     Read the comment lines starting with `#` for instructions.
@@ -71,10 +75,23 @@ Those steps are irrelevant for this example!_
 4. In [ranked_alert.py](ranked_alert.py) set `RUN = True`
 on line number 9.
 
-5. Save the changes.
+5. Save (commit) the changes.
+
+    ![Save Changes](../images/github_commit_unranked_alert_changes.png)
 
 #### 5. Deploy on Heroku
 1. Create a free dyno.
+
+    - Go to https://dashboard.heroku.com/apps.
+    - Click 'New' (top right corner).
+    - Create new app.
+    - Give your app a name & choose region.
+    - Deployment method: GitHub
+        
+    ![Deploy](../images/heroku_deployment_method_github.png)
+
+    - Connect to GitHub & choose your repository
+    (the one you forked and edited).
 
 2. Setup environment variables.
 
