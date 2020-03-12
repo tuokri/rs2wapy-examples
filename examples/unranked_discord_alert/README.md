@@ -101,4 +101,20 @@ on line number 9.
 
 2. Setup environment variables.
 
+    - From the top bar, navigate to your app's settings.
     
+    ![App Settings](../images/heroku_app_settings.png)
+    
+    - In settings, choose 'Reveal Config Vars'. Config Vars are your
+    environment variables.
+    
+    ![Config Vars](../images/heroku_reveal_config_vars.png)
+    
+    - Setup your environment variables. The variables you see in the image
+    are all required! 
+    - `DISCORD_WEBHOOK_URL` is the URL we created in [part 3](#3-create-a-discord-webhook) of this guide.
+    - Also fill in your WebAdmin details.
+    - You may create a new RS2 WebAdmin admin account for this bot, just make
+    sure the account has access to the "Current Game" tab.
+    
+    ![Setup Config Vars](../images/heroku_setup_config_vars.png)
