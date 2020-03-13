@@ -117,3 +117,9 @@ on line number 9.
     sure the account has access to the "Current Game" tab.
     
     ![Setup Config Vars](../images/heroku_setup_config_vars.png)
+
+    - Finally, enable the dyno.
+    
+    ![Enable Dyno1](../images/heroku_enable_dyno_1.JPG)
+    
+    ![Enable Dyno1](../images/heroku_enable_dyno_2.JPG)
