@@ -135,8 +135,10 @@ on line number 9.
     
     ![Heroku Logs](../images/heroku_view_logs.JPG)
     
-    - If everything was setup correctly, your logs should look like this.
-    
-    ![Working App Logs](../images/)
+    - If everything was setup correctly, you should have the following lines in your app log:
+    ```
+    2020-03-13T11:50:50.047845+00:00 app[worker.1]: running app: <module 'ranked_alert' from 'examples/unranked_discord_alert/ranked_alert.py'>
+    2020-03-13T11:50:51.492858+00:00 app[worker.1]: RS2WebAdmin initialized
+    ```
 
 #### 4. All done!
