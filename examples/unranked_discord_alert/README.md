@@ -68,15 +68,17 @@ Those steps are irrelevant for this example!_
     
     ![Role ID](../images/discord_get_copy_role_id.png)    
 
-3. Add role ID(s) to [ranked_alert.py](ranked_alert.py).
+3. Add role ID(s) to `ranked_alert.py`.
 
     ![Edit The File](../images/github_edit_unranked_alert.png)
+
+    **Make sure you edit the file in the repository you just forked!**
 
     Open the file and look at lines 18 to 28.
     The role IDs are stored in the `PING_DISCORD_ROLES` variable.
     Read the comment lines starting with `#` for instructions.
     
-4. In [ranked_alert.py](ranked_alert.py) set `RUN = True`
+4. In `ranked_alert.py` set `RUN = True`
 on line number 9.
 
     ![Edits](../images/github_unranked_alert_changes.png)
@@ -128,3 +130,13 @@ on line number 9.
     ![Enable Dyno1](../images/heroku_enable_dyno_1.JPG)
     
     ![Enable Dyno1](../images/heroku_enable_dyno_2.JPG)
+
+    - Check your app logs.
+    
+    ![Heroku Logs](../images/heroku_view_logs.JPG)
+    
+    - If everything was setup correctly, your logs should look like this.
+    
+    ![Working App Logs](../images/)
+
+#### 4. All done!
