@@ -2,7 +2,6 @@ import os
 import time
 
 from discord_webhook import DiscordWebhook
-
 from rs2wapy import RS2WebAdmin
 
 # Set this to True to enable this example application.
@@ -46,19 +45,28 @@ def main():
     role_pings = " ".join(PING_DISCORD_ROLES)
 
     while True:
-        # Get server information from WebAdmin.
-        cg = wa.get_current_game()
-        server_name = cg.info["Server Name"]
 
-        if not cg.ranked:
-            print("Server unranked, posting message to Discord", flush=True)
+        try:
 
-            # Format our warning message.
-            message = f"Warning, server '{server_name}' is unranked! {role_pings}"
+            # Get server information from WebAdmin.
+            cg = wa.get_current_game()
+            server_name = cg.info["Server Name"]
 
-            # Post the warning message to Discord.
-            webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, content=message)
-            webhook.execute()
+            if not cg.ranked:
+                print("Server unranked, posting message to Discord", flush=True)
+
+                # Format our warning message.
+                message = f"Warning, server '{server_name}' is unranked! {role_pings}"
+
+                # Post the warning message to Discord.
+                webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, content=message)
+                webhook.execute()
+
+                time.sleep(ALERT_INTERVAL)
+
+        except Exception as e:
+            print(f"error: {e}, retrying in 30 seconds")
+            time.sleep(30)
 
         # Sleep so that poll is performed every POLL_INTERVAL.
         time.sleep(POLL_INTERVAL - time.time() % POLL_INTERVAL)
