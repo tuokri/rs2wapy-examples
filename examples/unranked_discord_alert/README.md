@@ -1,5 +1,10 @@
 # Discord Unranked Alert Example Application
 
+This example application sends a message to Discord when the RS2
+server goes unranked. Server ranked status is checked every 5 seconds.
+If the server is unranked, the first message is sent instantly and
+after that a message is sent every 15 minutes until the server is ranked again.
+
 Make sure you read [the general example README](../../README.md) first.
 
 There are unlimited ways to deploy applications using `rs2wapy`.
