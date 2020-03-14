@@ -81,7 +81,9 @@ Those steps are irrelevant for this example!_
 4. In `ranked_alert.py` set `RUN = True`
 on line number 8.
 
-    ![Edits](../images/github_unranked_alert_changes.png)
+    ![Edits 1](../images/github_unranked_alert_run_true.png)
+
+    ![Edits 2](../images/github_unranked_alert_changes.png)
 
 5. Save (commit) the changes.
 
@@ -116,12 +118,15 @@ on line number 8.
     
     ![Config Vars](../images/heroku_reveal_config_vars.png)
     
-    - Setup your environment variables. The variables you see in the image
-    are all required! 
-    - `DISCORD_WEBHOOK_URL` is the URL we created in [part 3](#3-create-a-discord-webhook) of this guide.
-    - Also fill in your WebAdmin details.
-    - You may create a new RS2 WebAdmin admin account for this bot, just make
-    sure the account has access to the "Current Game" tab.
+    - Setup your environment variables.
+    - You have to setup `WEBADMIN_USERNAME_#`, `WEBADMIN_PASSWORD_#` and `WEBADMIN_URL_#`
+    for each RS2 server you want to track.
+    - The `#` starts from 1 and should be increased by 1 for every server you set up.
+    - The example image has variables set up for 2 servers.
+    - `DISCORD_WEBHOOK_URL_#` is the URL we created in [part 3](#3-create-a-discord-webhook) of this guide.
+    - If you only have a single webhook URL, you can use the same webhook URL multiple times.
+    - You may create new RS2 WebAdmin admin accounts for this bot, just make
+    sure the accounts have access to the "Current Game" tab.
     
     ![Setup Config Vars](../images/heroku_setup_config_vars.png)
 
@@ -131,14 +136,16 @@ on line number 8.
     
     ![Enable Dyno1](../images/heroku_enable_dyno_2.JPG)
 
+    - If you can't see the enable dyno buttons, go to 'Deploy' tab,
+    and at the end of the page, click 'Deploy Branch' (choose master branch).
     - Check your app logs.
     
     ![Heroku Logs](../images/heroku_view_logs.JPG)
     
-    - If everything was setup correctly, you should have the following lines in your app log:
+    - If everything was set up correctly, you should have the following lines in your app log:
     ```
     2020-03-13T11:50:50.047845+00:00 app[worker.1]: running app: <module 'ranked_alert' from 'examples/unranked_discord_alert/ranked_alert.py'>
-    2020-03-13T11:50:51.492858+00:00 app[worker.1]: RS2WebAdmin initialized
+    2020-03-13T11:50:51.492858+00:00 app[worker.1]: 2 RS2WebAdmin instances initialized
     ```
-
+   
 #### 4. All done!
