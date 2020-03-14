@@ -74,12 +74,12 @@ Those steps are irrelevant for this example!_
 
     **Make sure you edit the file in the repository you just forked!**
 
-    Open the file and look at lines 18 to 28.
+    Open the file and look at lines 31 to 41.
     The role IDs are stored in the `PING_DISCORD_ROLES` variable.
     Read the comment lines starting with `#` for instructions.
     
 4. In `ranked_alert.py` set `RUN = True`
-on line number 9.
+on line number 8.
 
     ![Edits](../images/github_unranked_alert_changes.png)
 
