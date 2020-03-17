@@ -35,9 +35,9 @@ DISCORD_WEBHOOK_URLS = get_env_vars("DISCORD_WEBHOOK_URL_#")
 # double quotation marks, separated by commas.
 #
 # For the pings to work the role ID must be of the following format
-# <&ROLE_ID> where ROLE_ID is the role ID you copied from Discord.
+# <@&ROLE_ID> where ROLE_ID is the role ID you copied from Discord.
 PING_DISCORD_ROLES = [
-    "<&111117777888889999>",  # Example role ping, put your real role ID(s) here!
+    "<@&111117777888889999>",  # Example role ping, put your real role ID(s) here!
 ]
 
 # Poll values are in seconds.
