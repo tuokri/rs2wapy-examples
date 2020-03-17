@@ -23,10 +23,10 @@ def get_env_vars(pat: str) -> list:
 
 # These variables are pulled from the runtime environment,
 # don't store passwords or secret information in this file!
-WEBADMIN_USERNAMES = os.environ["WEBADMIN_USERNAME"]
-WEBADMIN_PASSWORDS = os.environ["WEBADMIN_PASSWORD"]
-WEBADMIN_URLS = os.environ["WEBADMIN_URL"]
-DISCORD_WEBHOOK_URLS = os.environ["DISCORD_WEBHOOK_URL"]
+WEBADMIN_USERNAMES = [os.environ["WEBADMIN_USERNAME"]]
+WEBADMIN_PASSWORDS = [os.environ["WEBADMIN_PASSWORD"]]
+WEBADMIN_URLS = [os.environ["WEBADMIN_URL"]]
+DISCORD_WEBHOOK_URLS = [os.environ["DISCORD_WEBHOOK_URL"]]
 
 # Paste the role IDs here that you want to get pinged
 # when the unranked alert message is sent.
