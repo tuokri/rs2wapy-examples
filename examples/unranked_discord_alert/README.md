@@ -136,8 +136,8 @@ on line number 8.
     
     ![Enable Dyno1](../images/heroku_enable_dyno_2.JPG)
 
-    - If you can't see the enable dyno buttons, go to 'Deploy' tab,
-    and at the end of the page, click 'Deploy Branch' (choose master branch).
+    - **If you can't see the enable dyno buttons, go to 'Deploy' tab,**
+    **and at the end of the page, click 'Deploy Branch' (choose master branch)**.
     - Check your app logs.
     
     ![Heroku Logs](../images/heroku_view_logs.JPG)
