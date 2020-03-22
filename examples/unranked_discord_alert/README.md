@@ -11,6 +11,8 @@ There are unlimited ways to deploy applications using `rs2wapy`.
 This particular example uses [Heroku](https://www.heroku.com/)
 to host the unranked alert bot.
 
+You may also read this guide at [RS2 Community Hub](https://steamcommunity.com/sharedfiles/filedetails/?id=2031260172).
+
 ### Directory Structure
 Brief explanation of the files in this directory.
 ```
