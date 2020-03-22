@@ -44,7 +44,55 @@ PING_DISCORD_ROLES = [
 # Poll ranked status every 5 seconds.
 POLL_INTERVAL = 5
 # Alert every 15 minutes if server is unranked.
+# The first alert is always sent instantly regardless of this value.
 ALERT_INTERVAL = 60 * 15
+
+
+class Timer:
+    """Simple timer class."""
+
+    def __init__(self):
+        self._start_time = 0
+        self._period = 0
+
+    def start(self, t: float):
+        self._start_time = time.time()
+        self._period = t
+
+    def expired(self) -> bool:
+        return time.time() > (self._start_time + self._period)
+
+    def cancel(self):
+        self._start_time = 0
+        self._period = 0
+
+
+def change_map(web_admin: RS2WebAdmin, new_map: str):
+    """Change map and wait for change to complete.
+
+    NOTE: If the current map and the new map are the same map,
+    this function has no way of knowing if the map change
+    was actually successful.
+    """
+    print(f"Changing map to '{new_map}'", flush=True)
+
+    timed_out = False
+    timeout = 60
+    start_time = time.time()
+
+    web_admin.change_map(new_map)
+    while True and not timed_out:
+        timed_out = time.time() > (start_time + timeout)
+        try:
+            cg = web_admin.get_current_game()
+            if cg.info["Map"] == new_map:
+                print(f"Map changed successfully", flush=True)
+                break
+        except Exception as e:
+            print(f"WARNING: (non-fatal error): {e}", flush=True)
+
+    if timed_out:
+        print("WARNING: timed out while changing maps!", flush=True)
 
 
 def main():
@@ -63,14 +111,18 @@ def main():
     # Setup roles we want to ping into a string.
     role_pings = " ".join(PING_DISCORD_ROLES)
 
+    # Setup as many times as we have WebAdmins.
+    timers = [Timer() for _ in range(len(web_admins))]
+
     while True:
         try:
-            for wa, wh_url in zip(web_admins, DISCORD_WEBHOOK_URLS):
+            for wa, wh_url, timer in zip(web_admins, DISCORD_WEBHOOK_URLS, timers):
                 # Get server information from WebAdmin.
                 cg = wa.get_current_game()
                 server_name = cg.info["Server Name"]
+                print(f"Polling '{server_name}'", flush=True)
 
-                if not cg.ranked:
+                if not cg.ranked and timer.expired():
                     print(f"'{server_name}' unranked, posting message to Discord", flush=True)
 
                     # Format our warning message.
@@ -80,7 +132,20 @@ def main():
                     webhook = DiscordWebhook(url=wh_url, content=message)
                     webhook.execute()
 
-                    time.sleep(ALERT_INTERVAL)
+                    # Start our timer to avoid spamming with alerts.
+                    timer.start(ALERT_INTERVAL)
+
+                    # We could also post in game warning message and
+                    # change the map automatically.
+                    # wa.post_chat_message("SERVER UNRANKED BUG OCCURRED!")
+                    # wa.post_chat_message("CHANGING MAP AUTOMATICALLY IN 5 SECONDS!")
+                    # time.sleep(5)
+                    # change_map(wa, "VNTE-Resort")
+                    # If we changed maps automatically, we can just cancel the timer.
+                    # timer.cancel()
+                    # We could also post an extra warning to Discord.
+                    # webhook = DiscordWebhook(url=wh_url, content="Changing map to Resort!")
+                    # webhook.execute()
 
             # Sleep so that poll is performed every POLL_INTERVAL.
             time.sleep(POLL_INTERVAL - time.time() % POLL_INTERVAL)

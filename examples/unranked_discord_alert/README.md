@@ -148,4 +148,19 @@ on line number 8.
     2020-03-13T11:50:51.492858+00:00 app[worker.1]: 2 RS2WebAdmin instances initialized
     ```
    
-#### 4. All done!
+#### 4. All done & extras!
+There are also some extra features in `ranked_alert.py` that are commented
+by prefixing with `#`, disabling them. You may uncomment these lines if you
+wish to enable the extra features. Make sure the lines "line up" i.e. the
+uncommented line is not intended by an extra whitespace.
+
+E.g.
+```python
+# We could also change the map automatically.
+# change_map(wa, "VNTE-Resort")
+```
+would be changed to:
+```python
+# We could also change the map automatically.
+change_map(wa, "VNTE-Resort")
+```
